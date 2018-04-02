@@ -53,6 +53,21 @@ This module instantiates a wordlist class (C<WordList::*>) then applies
 per-object patches from one or more mod's (C<WordList::Mod::*> modules).
 
 
+=head1 FUNCTIONS
+
+None of the functions are exported by default, but they are exportable.
+
+=head2 get_mod_wordlist
+
+Usage:
+
+ get_mod_wordlist($wl_mod, @mod_mods) => obj
+
+Instantiate a wordlist class (C<< WordList::<$wl_mod> >>) then apply the patches
+from zero or more "mod" modules (modules in C<WordList::Mod::*> namespace). The
+patches are per-object.
+
+
 =head1 SEE ALSO
 
 L<WordList>
