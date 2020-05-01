@@ -1,6 +1,8 @@
-package WordList::Mod;
+package WordListMod;
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use strict 'subs', 'vars';
@@ -22,7 +24,7 @@ sub get_mod_wordlist {
     my $wl = $wl_mod->new;
 
     for my $mod (@mod_mods) {
-        $mod = "WordList::Mod::$mod" unless $mod =~ /\AWordList::Mod::/;
+        $mod = "WordListMod::$mod" unless $mod =~ /\AWordListMod::/;
         (my $mod_pm = "$mod.pm") =~ s!::!/!g; require $mod_pm;
 
         my $patches = \@{"$mod\::patches"};
@@ -39,7 +41,7 @@ sub get_mod_wordlist {
 
 =head1 SYNOPSIS
 
- use WordList::Mod qw(get_mod_wordlist);
+ use WordListMod qw(get_mod_wordlist);
 
  my $wl = get_mod_wordlist('EN::Foo', 'Bloom');
  $wl->word_exists("foo");
@@ -50,7 +52,7 @@ sub get_mod_wordlist {
 EXPERIMENTAL.
 
 This module instantiates a wordlist class (C<WordList::*>) then applies
-per-object patches from one or more mod's (C<WordList::Mod::*> modules).
+per-object patches from one or more mod's (C<WordListMod::*> modules).
 
 
 =head1 FUNCTIONS
@@ -64,7 +66,7 @@ Usage:
  get_mod_wordlist($wl_mod, @mod_mods) => obj
 
 Instantiate a wordlist class (C<< WordList::<$wl_mod> >>) then apply the patches
-from zero or more "mod" modules (modules in C<WordList::Mod::*> namespace). The
+from zero or more "mod" modules (modules in C<WordListMod::*> namespace). The
 patches are per-object.
 
 
